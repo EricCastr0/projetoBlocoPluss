@@ -1,18 +1,23 @@
 const { app, BrowserWindow, Menu, Tray } = require('electron');
 
 
-function createWindow() {
-    let mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
-    });
 
-    mainWindow.loadFile(__dirname + '/src/index.html');
+function createWindow() {
+    //let mainWindow = new BrowserWindow({
+    // width: 800,
+    //height: 600
+
+
+    mainWindow = new BrowserWindow({ whidt: 800, height: 600, icon: __dirname + '/tray.png' })
+    mainWindow.loadFile(__dirname + '/src/index.html')
     mainWindow.on('closed', function () {
         mainWindow = null;
+
     })
 
-    //mainWindow.setMenu(null);
+
+
+    mainWindow.setMenu(null);
 
     const contextMenu = Menu.buildFromTemplate([
         {
